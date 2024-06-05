@@ -18,7 +18,8 @@ app.use(ex.json())
 // Delete: Para eliminar datos en el servidor.
 
 app.get('/', (req, res) => {
-    res.json(data)
+    res.json({productos, usuarios})
+
 })
 
 app.use('/users', userRoutes)
