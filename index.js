@@ -19,7 +19,9 @@ app.use(ex.json())
 
 app.get('/', (req, res) => {
     res.json({productos, usuarios})
-
+})
+app.get('https://creating-api-without-database-express.vercel.app', (req, res) => {
+    res.json({productos, usuarios})
 })
 
 app.use('/users', userRoutes)
