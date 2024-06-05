@@ -1,6 +1,8 @@
 import ex from 'express' // Ecmascript 6
-import {usuarios, productos} from './users.js'
+import {usuarios} from './users.js'
+import {productos} from './products.js'
 import userRoutes from './routes/users.routes.js'
+import productRoutes from './routes/products.routes.js'
 
 const app = ex()
 
@@ -20,10 +22,14 @@ app.get('/', (req, res) => {
 })
 
 app.use('/users', userRoutes)
+app.use('/products', productRoutes)
 
 
 app.get('/products', (req, res) => {
     res.json(productos)
+})
+app.get('/users', (req, res) => {
+    res.json(usuarios)
 })
 
 

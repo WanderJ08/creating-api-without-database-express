@@ -1,10 +1,10 @@
 import { productos } from '../products.js'
 
-export const getproducts = (req, res) => {
+export const getProducts = (req, res) => {
     res.json(productos)
 }
 
-export const createUser = (req, res) => {
+export const createProduct = (req, res) => {
     const data = req.body
 
     if(!data.id) return res.status(400).json({ error: 'Id is required' })
@@ -14,7 +14,7 @@ export const createUser = (req, res) => {
     return res.json(productos)  
 }
 
-export const updateUser = (req, res) => {
+export const updateProduct = (req, res) => {
 
     try {
         const data = req.body
@@ -22,9 +22,9 @@ export const updateUser = (req, res) => {
 
         if(!id) return res.status(400).json({ error: 'Id should be a number' })
         
-        const index = productos.findIndex(user => user.id == id)
+        const index = productos.findIndex(product => product.id == id)
 
-        if(index < 0) return res.status(404).json({ error: 'User not found' })
+        if(index < 0) return res.status(404).json({ error: 'Product not found' })
 
         productos[index] = { ...productos[index], ...data }
 
@@ -34,13 +34,13 @@ export const updateUser = (req, res) => {
     }
 }
 
-export const deleteUser =  (req, res) => {
+export const deleteProduct =  (req, res) => {
     const id = parseInt(req.params.id) 
     if(!id) return res.status(400).json({ error: 'Id should be a number' })
     
-    const index = productos.findIndex(user => user.id == id)
+    const index = productos.findIndex(product => product.id == id)
 
-    if(index < 0) return res.status(404).json({ error: 'User not found' })
+    if(index < 0) return res.status(404).json({ error: 'Product not found' })
 
     productos.splice(index, 1)
 
