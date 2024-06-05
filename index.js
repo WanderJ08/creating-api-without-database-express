@@ -24,7 +24,6 @@ app.get('/', (req, res) => {
 app.use('/users', userRoutes)
 app.use('/products', productRoutes)
 
-
 app.get('/products', (req, res) => {
     res.json(productos)
 })
